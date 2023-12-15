@@ -93,6 +93,8 @@ def predict(
             for logit
             in logits
         ]
+        # remove space within each phrase
+        phrases = [phrase.replace(' ', '') for phrase in phrases]
 
     return boxes, logits.max(dim=1)[0], phrases
 
